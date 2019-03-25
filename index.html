@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Client-side Templating</title>
+</head>
+<body>
+
+	<!-- Display all attributes of each restaurant. The ownedBy attribute should be rendered as an unordered list. The yelpPage attribute should be rendered as a link that opens in a new tab. The text of this link should say “Check us out on Yelp”. If the restaurant accepts Apple Pay, display an Apple icon. Otherwise, display the text “No Apple Pay”. While the response is loading, display “Loading…”. -->
+	
+
+<!-- location: "West Hollywood"
+name: "Crossroads"
+ownedBy: (2) ["Travis Barker", "Tal Ronnen"]
+yelpPage: "https://www.yelp.com/biz/crossroads-los-angeles-3" -->
+
+	
+	<!-- <button id="show">Show Results</button> -->
+
+
+
+	<template id="restaurant-template">
+		
+		{{#each restaurant}}
+
+
+		<div id="restaurant">
+
+			DATA HERE
+			<h1>Name: {{name}}</h1>
+			<br>
+			<ul>
+				<!-- <li>{{ownedBy}}</li> -->
+				<!-- <li>{{ownedBy[2]}}</li> -->
+			</ul>
+
+		</div>
+
+
+		{{/each}}
+
+	</template>
+
+
+
+	<div id="results">
+</div>
+
+<script src="jquery-3.3.1.js"></script>
+<script src="handlebars-v4.0.11.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
