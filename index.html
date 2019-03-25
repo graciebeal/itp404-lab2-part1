@@ -3,6 +3,56 @@
 <head>
   <meta charset="utf-8">
   <title>Client-side Templating</title>
+
+  <style>
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+  body {
+  	font-family: 'Roboto', sans-serif;
+
+  }
+
+  img {
+  	width: 50px;
+  }
+
+  h2 {
+  	font-size: 20px;
+  	text-align: center;
+  }
+
+  h1 {
+  	font-size: 28px;
+  	text-align: center;
+  }
+
+  #restaurant {
+  	border: 1px solid black;
+  	width: 200px;
+  	padding: 10px;
+  	margin: 10px;
+  	float: left;
+  }
+
+  .pay {
+  	text-align: center;
+  	/*margin-top: 15px;*/
+  }
+
+  #results {
+  	clear: both;
+  }
+
+  #output {
+  	width: 484px;
+  	margin-left: auto;
+  	margin-right: auto;
+  }
+
+
+
+	</style>
 </head>
 <body>
 
@@ -18,33 +68,52 @@ yelpPage: "https://www.yelp.com/biz/crossroads-los-angeles-3" -->
 	<!-- <button id="show">Show Results</button> -->
 
 
-
+<h1>Restaurants</h1>
 	<template id="restaurant-template">
+
+		<div id="output">
 		
 		{{#each restaurant}}
 
 
 		<div id="restaurant">
 
-			DATA HERE
-			<h1>Name: {{name}}</h1>
-			<br>
-			<ul>
-				<!-- <li>{{ownedBy}}</li> -->
-				<!-- <li>{{ownedBy[2]}}</li> -->
-			</ul>
+			
+			<h2>{{name}}</h2>
 
+			<a href="{{yelpPage}}" target="_blank">Check us out on Yelp</a>
+			<br><br>Owned by:
+			<ul>
+					{{#each ownedBy}}
+					<li>{{this}}</li>
+					{{/each}}
+			</ul>
+					
+			
+			
+
+			{{#if acceptsApplePay}}
+			<div class="pay">
+			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYD40dAWfSxUvkhkwPEBuOX4zFPf_UsSdJQtR1ZeZHiNeAw0j9">
+			{{else}}
+			<div class="pay">
+
+			<p><strong>No Apple Pay</strong></p>
+			{{/if}}
+		</div>
 		</div>
 
 
 		{{/each}}
+
+	</div>
 
 	</template>
 
 
 
 	<div id="results">
-</div>
+	</div>
 
 <script src="jquery-3.3.1.js"></script>
 <script src="handlebars-v4.0.11.js"></script>

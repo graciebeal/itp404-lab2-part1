@@ -5,7 +5,8 @@ let renderRestaurant = Handlebars.compile(restaurantTemplateString);
 		function(restaurants){
 			console.log(restaurants);
 			let renderedRestaurant = renderRestaurant({
-				restaurant: restaurants.data
+				restaurant: restaurants.data,
+				ownedBy: restaurants.data.ownedBy
 		});
 
 		$('body').append(renderedRestaurant);
